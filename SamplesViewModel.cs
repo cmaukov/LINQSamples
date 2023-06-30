@@ -257,9 +257,10 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax #1 Here
-            value = products.Select(p => p.ListPrice).Average();
+            // value = products.Select(p => p.ListPrice).Average();
 
             // Write Method Syntax #2 Here
+            value = products.Average(p => p.ListPrice);
 
 
             return value;
