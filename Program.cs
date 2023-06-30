@@ -4,7 +4,7 @@
 SamplesViewModel vm = new();
 
 // Call Sample Method
-var result = vm.MaxByMethod();
+var result = vm.AverageQuery();
 
 // Display Results
 vm.Display(result);
