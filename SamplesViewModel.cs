@@ -30,7 +30,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
+            value = products.Count();
 
             return value;
         }
