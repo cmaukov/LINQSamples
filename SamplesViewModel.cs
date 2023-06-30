@@ -87,10 +87,10 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax #1 Here
-            value = (from prod in products select prod.ListPrice).Min();
+            // value = (from prod in products select prod.ListPrice).Min();
 
             // Write Query Syntax #2 Here
-
+            value = (from prod in products select prod).Min(p => p.ListPrice);
 
             return value;
         }
