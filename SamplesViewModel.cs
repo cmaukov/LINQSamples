@@ -338,7 +338,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
+            value = products.Aggregate(0M, (sum, prod) => sum += prod.ListPrice);
             return value;
         }
         #endregion
