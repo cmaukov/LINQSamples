@@ -202,7 +202,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
+            product = (from prod in products select prod).MaxBy(p => p.ListPrice);
 
             return product;
         }
