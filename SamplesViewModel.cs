@@ -320,6 +320,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
+            value = (from prod in products select prod).Aggregate(0M, (sum, prod) => sum += prod.ListPrice);
 
 
             return value;
@@ -337,7 +338,6 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
 
             return value;
         }
