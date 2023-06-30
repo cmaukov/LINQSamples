@@ -47,7 +47,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax #1 Here
-
+            value = (from prod in products select prod).Count(p=>p.Color =="Red");
 
             // Write Query Syntax #2 Here
 
