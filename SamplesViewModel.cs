@@ -281,6 +281,7 @@
 
             value = (from prod in products select prod.ListPrice).Sum();
             // Write Query Syntax #2 Here
+            value = (from prod in products select prod).Sum(p=>p.ListPrice);
 
 
             return value;
