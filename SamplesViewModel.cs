@@ -168,7 +168,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
+            product = (from prod in products select prod).MinBy(p => p.ListPrice);
 
             return product;
         }
