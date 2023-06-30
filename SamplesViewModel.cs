@@ -299,7 +299,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax #1 Here
-
+            value = products.Select(p => p.ListPrice).Sum();
 
             // Write Method Syntax #1 Here
 

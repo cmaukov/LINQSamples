@@ -4,7 +4,7 @@
 SamplesViewModel vm = new();
 
 // Call Sample Method
-var result = vm.SumQuery();
+var result = vm.SumMethod();
 
 // Display Results
 vm.Display(result);
