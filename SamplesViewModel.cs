@@ -303,6 +303,7 @@
 
             // Write Method Syntax #1 Here
 
+            value = products.Sum(p => p.ListPrice);
 
             return value;
         }
