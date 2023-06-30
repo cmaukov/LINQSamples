@@ -236,10 +236,11 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax #1 Here
-            value = (from prod in products select prod.ListPrice).Average();
+            // value = (from prod in products select prod.ListPrice).Average();
 
             // Write Query Syntax #2 Here
 
+            value = (from prod in products select prod).Average(p=>p.ListPrice);
 
             return value;
         }
