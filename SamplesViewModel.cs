@@ -148,7 +148,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax #1 Here
-
+            value = products.Max(p => p.ListPrice);
 
             // Write Method Syntax #2 Here
 
