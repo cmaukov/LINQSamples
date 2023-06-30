@@ -185,7 +185,7 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
+            product = products.MinBy(p => p.ListPrice);
 
             return product;
         }
