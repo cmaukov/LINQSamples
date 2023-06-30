@@ -4,7 +4,7 @@
 SamplesViewModel vm = new();
 
 // Call Sample Method
-var result = vm.MinQuery();
+var result = vm.MinMethod();
 
 // Display Results
 vm.Display(result);
