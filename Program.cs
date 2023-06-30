@@ -4,7 +4,7 @@
 SamplesViewModel vm = new();
 
 // Call Sample Method
-var result = vm.AggregateUsingGroupByMethod();
+var result = vm.AggregateMoreEfficientMethod();
 
 // Display Results
 vm.Display(result);
