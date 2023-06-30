@@ -396,7 +396,7 @@
                     group prod by prod.Size
                 into sizeGroup
                     where sizeGroup.Any()
-                select new ProductStats
+                    select new ProductStats
                     {
                         Size = sizeGroup.Key,
                         TotalProducts = sizeGroup.Count(),
@@ -423,7 +423,17 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax Here
-
+            list = products.GroupBy(prod => prod.Size)
+                .Where(sizeGroup => sizeGroup.Any())
+                .Select(p => new ProductStats
+                {
+                    Size = p.Key,
+                    TotalProducts = p.Count(),
+                    MinListPrice = p.Min(prod => prod.ListPrice),
+                    MaxListPrice = p.Max(prod => prod.ListPrice),
+                    AverageListPrice = p.Average(prod => prod.ListPrice)
+                }).OrderBy(prod => prod.Size)
+                .ToList();
 
             return list;
         }
