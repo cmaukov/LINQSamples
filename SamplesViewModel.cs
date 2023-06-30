@@ -107,10 +107,10 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax #1 Here
-            value = products.Min(p => p.ListPrice);
+            // value = products.Min(p => p.ListPrice);
 
             // Write Method Syntax #2 Here
-
+            value = products.Select(p => p.ListPrice).Min();
 
             return value;
         }
