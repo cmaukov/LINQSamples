@@ -240,7 +240,7 @@
 
             // Write Query Syntax #2 Here
 
-            value = (from prod in products select prod).Average(p=>p.ListPrice);
+            value = (from prod in products select prod).Average(p => p.ListPrice);
 
             return value;
         }
@@ -281,7 +281,7 @@
 
             value = (from prod in products select prod.ListPrice).Sum();
             // Write Query Syntax #2 Here
-            value = (from prod in products select prod).Sum(p=>p.ListPrice);
+            value = (from prod in products select prod).Sum(p => p.ListPrice);
 
 
             return value;
@@ -355,7 +355,7 @@
 
             // Write Query Syntax Here
             value = (from sale in sales
-                    select sale)
+                     select sale)
                 .Aggregate(0M, (sum, sale) =>
                     sum += (sale.OrderQty * sale.UnitPrice));
 
@@ -392,8 +392,22 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Query Syntax Here
-
-
+            list = (from prod in products
+                    group prod by prod.Size
+                into sizeGroup
+                    where sizeGroup.Any()
+                select new ProductStats
+                    {
+                        Size = sizeGroup.Key,
+                        TotalProducts = sizeGroup.Count(),
+                        MinListPrice = sizeGroup.Min(prod => prod.ListPrice),
+                        MaxListPrice = sizeGroup.Max(prod => prod.ListPrice),
+                        AverageListPrice = sizeGroup.Average(prod => prod.ListPrice)
+                    }
+                    into result
+                    orderby result.Size
+                    select result
+                    ).ToList();
             return list;
         }
         #endregion
