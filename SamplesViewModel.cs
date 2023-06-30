@@ -67,10 +67,10 @@
             List<Product> products = ProductRepository.GetAll();
 
             // Write Method Syntax #1 Here
-            value = products.Count(p => p.Color == "Red");
+            // value = products.Count(p => p.Color == "Red");
 
             // Write Method Syntax #2 Here
-
+            value = products.Select(p => p.Color == "Red").Count();
 
             return value;
         }
