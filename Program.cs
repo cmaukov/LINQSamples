@@ -4,7 +4,7 @@
 SamplesViewModel vm = new();
 
 // Call Sample Method
-var result = vm.AggregateCustomQuery();
+var result = vm.AggregateCustomMethod();
 
 // Display Results
 vm.Display(result);

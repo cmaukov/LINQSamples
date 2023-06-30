@@ -375,6 +375,7 @@
 
             // Write Method Syntax Here
 
+            value = sales.Aggregate(0M, (sum, sale) => sum += sale.OrderQty * sale.UnitPrice);
 
             return value;
         }
